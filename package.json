@@ -1,0 +1,14 @@
+{
+  "name": "fuck-its-art",
+  "version": "1.0.0",
+  "description": "",
+  "main": "artOracle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dposse",
+  "license": "InpSC",
+  "dependencies": {
+    "ora": "^4.0.4"
+  }
+}
