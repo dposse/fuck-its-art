@@ -27,7 +27,7 @@ async function declareArt({ adjective, noun, medium }) {
 
 async function spinnerAnimation() {
   return new Promise((resolve, reject) => {
-    const spinnerText = [
+    const spinnerTextOptions = [
       'Loading the future...',
       'Its arty time!',
       'Contemplating the meaning of life...',
@@ -63,13 +63,17 @@ async function spinnerAnimation() {
       'Spinning up the hamster...',
     ]
 
+    //importing cli-spinners feels wrong... it is in ora, but haven't found a better way to access
+    const clispinners = require('cli-spinners');
+    const spinnerAnimationOptionNames = Object.keys(clispinners);
+
     const spinner = ora({
-      text: getRandomItem(spinnerText),
-      spinner: 'bouncingBar'
+      text: getRandomItem(spinnerTextOptions) + '\n',
+      spinner: getRandomItem(spinnerAnimationOptionNames),
     }).start();
 
     const loadingInterval = setInterval(() => {
-      spinner.text = getRandomItem(spinnerText)
+      spinner.text = getRandomItem(spinnerTextOptions) + '\n'
     }, 2000)
 
     setTimeout(() => {
